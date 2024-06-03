@@ -1,118 +1,237 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Head from "next/head";
+import { motion } from "framer-motion";
+import Layout from "../components/Layout";
+// import LocomotiveScroll from "../components/locomotivescroll";
 
 export default function Home() {
+  const corporateEvents = [
+    {
+      title: "Product Launch",
+      details:
+        "Launch your product in style with our meticulously planned event.",
+    },
+    {
+      title: "Conference",
+      details:
+        "Host productive conferences that engage your audience and foster collaboration.",
+    },
+    {
+      title: "Team Building",
+      details:
+        "Boost team morale and cohesion with our innovative team-building activities.",
+    },
+    {
+      title: "Seminars",
+      details:
+        "Informative seminars delivered with professionalism and expertise.",
+    },
+    {
+      title: "Workshops",
+      details:
+        "Interactive workshops tailored to your organization's specific goals.",
+    },
+    {
+      title: "Trade Shows",
+      details:
+        "Showcase your brand and products at trade shows that attract attention.",
+    },
+  ];
+
+  const weddingEvents = [
+    {
+      title: "Destination Weddings",
+      details: "Say 'I do' in breathtaking locations around the world.",
+    },
+    {
+      title: "Traditional Ceremonies",
+      details: "Experience timeless traditions in elegant settings.",
+    },
+    {
+      title: "Themed Weddings",
+      details:
+        "Create a wedding that reflects your unique style and personality.",
+    },
+    {
+      title: "Intimate Celebrations",
+      details:
+        "Celebrate your love with close friends and family in cozy settings.",
+    },
+    {
+      title: "Luxury Weddings",
+      details:
+        "Indulge in luxurious amenities and services for an opulent wedding experience.",
+    },
+    {
+      title: "Outdoor Ceremonies",
+      details:
+        "Exchange vows surrounded by the beauty of nature in stunning outdoor venues.",
+    },
+  ];
+
+  const privateParties = [
+    {
+      title: "Birthday Parties",
+      details:
+        "Celebrate another trip around the sun with memorable birthday parties.",
+    },
+    {
+      title: "Anniversary Celebrations",
+      details:
+        "Honor your love and commitment with unforgettable anniversary celebrations.",
+    },
+    {
+      title: "Graduation Parties",
+      details:
+        "Mark academic achievements with fun and festive graduation parties.",
+    },
+    {
+      title: "Family Reunions",
+      details:
+        "Reconnect with loved ones and create lasting memories with family reunion events.",
+    },
+    {
+      title: "Holiday Parties",
+      details:
+        "Spread holiday cheer with festive and joyous holiday party celebrations.",
+    },
+    {
+      title: "Themed Parties",
+      details:
+        "Transform ordinary gatherings into extraordinary themed parties that leave a lasting impression.",
+    },
+  ];
+
+  const cardVariants = {
+    offscreen: {
+      y: 300,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Layout>
+      <Head>
+        <title>Event Management Company</title>
+        <meta name="description" content="Best event management services." />
+      </Head>
+      {/* <LocomotiveScroll> */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="bg-gradient-to-br from-blue-600 via-red-300 to-cyan-500 min-h-screen flex flex-col justify-center"
+      >
+        <div className="text-center py-10">
+          <motion.h1
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-bold mb-6"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Welcome to Our Event Management Company
+          </motion.h1>
+          <motion.p
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-xl mb-6"
+          >
+            We organize the best events in town.
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+      {/* Corporate Events Section */}
+      <section className="bg-gray-200 py-12 h-screen flex flex-col justify-center">
+        <div className="container mx-auto">
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Corporate Events
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+          <p className="mb-6 text-center">
+            Our professional team specializes in managing corporate events that
+            leave a lasting impact on your audience.
           </p>
-        </a>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {corporateEvents.map((event, index) => (
+              <motion.div
+                key={index}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                variants={cardVariants}
+                className="bg-gradient-to-br from-blue-600 via-red-300 to-cyan-500 text-white p-6 rounded-lg shadow-lg"
+              >
+                <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                <p>{event.details}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+      {/* Weddings Section */}
+      <section className="bg-gray-300 py-12 h-screen flex flex-col justify-center">
+        <div className="container mx-auto">
+          <h2 className="text-2xl font-bold mb-4 text-center">Weddings</h2>
+          <p className="mb-6 text-center">
+            Let us turn your special day into an unforgettable celebration with
+            our expert wedding planning services.
           </p>
-        </a>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {weddingEvents.map((event, index) => (
+              <motion.div
+                key={index}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                variants={cardVariants}
+                className="bg-gradient-to-br from-green-600 via-yellow-300 to-orange-500 text-white p-6 rounded-lg shadow-lg"
+              >
+                <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                <p>{event.details}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+      {/* Private Parties Section */}
+      <section className="bg-gray-400 py-12 h-screen flex flex-col justify-center">
+        <div className="container mx-auto">
+          <h2 className="text-2xl font-bold mb-4 text-center">
+            Private Parties
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
+          <p className="mb-6 text-center">
+            Elevate your private party experience with our exclusive planning
+            services tailored to your preferences.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {privateParties.map((event, index) => (
+              <motion.div
+                key={index}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                variants={cardVariants}
+                className="bg-gradient-to-br from-red-600 via-purple-300 to-pink-500 text-white p-6 rounded-lg shadow-lg"
+              >
+                <h3 className="text-xl font-bold mb-2">{event.title}</h3>
+                <p>{event.details}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* </LocomotiveScroll> */}
+    </Layout>
   );
 }
