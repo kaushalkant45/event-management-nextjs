@@ -23,6 +23,7 @@ export default function Layout({ children }) {
               alt="Company Logo"
               width={50}
               height={20}
+              priority
               className="cursor-pointer"
             />
           </Link>

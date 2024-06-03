@@ -1,7 +1,23 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Layout from "../components/Layout";
-// import LocomotiveScroll from "../components/locomotivescroll";
+import { useEffect } from "react";
+import gsap from "gsap";
+
+const Shape = ({ className }) => {
+  useEffect(() => {
+    gsap.to(`.${className}`, {
+      x: () => gsap.utils.random(-100, 100),
+      y: () => gsap.utils.random(-100, 100),
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+  }, [className]);
+
+  return <div className={`shape ${className}`}></div>;
+};
 
 export default function Home() {
   const corporateEvents = [
@@ -123,14 +139,19 @@ export default function Home() {
         <title>Event Management Company</title>
         <meta name="description" content="Best event management services." />
       </Head>
-      {/* <LocomotiveScroll> */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="bg-gradient-to-br from-blue-600 via-red-300 to-cyan-500 min-h-screen flex flex-col justify-center"
+        className="bg-gradient-to-br from-blue-600 via-red-300 to-cyan-500 min-h-screen flex flex-col justify-center relative overflow-hidden"
       >
-        <div className="text-center py-10">
+        {/* Add shapes */}
+        <div className="shapes-container absolute inset-0 pointer-events-none">
+          <Shape className="shape1" />
+          <Shape className="shape2" />
+          <Shape className="shape3" />
+        </div>
+        <div className="text-center py-10 relative ">
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -231,7 +252,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* </LocomotiveScroll> */}
     </Layout>
   );
 }
