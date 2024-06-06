@@ -127,8 +127,8 @@ export default function Home() {
       opacity: 1,
       transition: {
         type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
+        bounce: 0.2,
+        duration: 1.5,
       },
     },
   };
@@ -150,13 +150,21 @@ export default function Home() {
           <Shape className="shape1" />
           <Shape className="shape2" />
           <Shape className="shape3" />
+          <Shape className="shape4" />
         </div>
-        <div className="text-center py-10 relative ">
+        <div className="text-center py-10 relative">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          ></motion.div>
           <motion.h1
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold mb-6"
+            className="text-6xl font-extrabold mb-6 text-white"
+            style={{ fontFamily: "'Dancing Script', cursive" }}
           >
             Welcome to Our Event Management Company
           </motion.h1>
@@ -164,7 +172,8 @@ export default function Home() {
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-xl mb-6"
+            className="text-3xl mb-6 text-white"
+            style={{ fontFamily: "'Dancing Script', cursive" }}
           >
             We organize the best events in town.
           </motion.p>
